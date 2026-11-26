@@ -1,0 +1,24 @@
+# Loop de feedback automático: todo PR precisa passar em lint, testes e build.
+# Confirme as versões atuais das actions (checkout e setup-node) antes de publicar.
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  verificar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+      - run: npm run lint
+      - run: npm test
+      - run: npm run build
