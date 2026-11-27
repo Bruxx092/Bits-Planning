@@ -1,0 +1,36 @@
+@import "tailwindcss";
+@import "@xyflow/react/dist/style.css";
+@import "@fontsource/atkinson-hyperlegible/400.css";
+@import "@fontsource/atkinson-hyperlegible/700.css";
+
+@theme {
+  --color-nevoa: #f4f6f8;
+  --color-papel: #ffffff;
+  --color-tinta: #17212b;
+  --color-suave: #5b6773;
+  --color-petroleo: #1d6e75;
+  --color-ambar: #b7791f;
+  --color-musgo: #5e8c6a;
+  --font-sans: "Atkinson Hyperlegible", system-ui, -apple-system, sans-serif;
+}
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+    margin: 0;
+  }
+
+  body {
+    background-color: var(--color-nevoa);
+    color: var(--color-tinta);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-petroleo);
+    outline-offset: 2px;
+  }
+}
