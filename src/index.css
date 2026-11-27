@@ -1,17 +1,199 @@
 @import "tailwindcss";
 @import "@xyflow/react/dist/style.css";
-@import "@fontsource/atkinson-hyperlegible/400.css";
-@import "@fontsource/atkinson-hyperlegible/700.css";
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+@import "@fontsource/inter/600.css";
+@import "@fontsource/inter/700.css";
+
+:root {
+  color-scheme: light;
+
+  /* Neutros */
+  --canvas: #fdfdfd;
+  --surface: #ffffff;
+  --border: #e5e5e5;
+  --fill-subtle: #f0f0f0;
+  --text: #1d1d1f;
+  --text-2: #737373;
+  --text-3: #a1a1a1;
+
+  --btn-primary-bg: #1d1d1f;
+  --btn-primary-text: #ffffff;
+  --focus: #2263e5;
+  --focus-halo: #d9eafe;
+
+  /* Acentos com significado (texto ajustado para contraste WCAG AA >= 4,5:1) */
+  --done-bg: #f0faf9;
+  --done-icon: #2ab8a5;
+  --done-text: #117a6d;
+  --done-border: rgba(42, 184, 165, 0.35);
+
+  --priority-bg: #fef8f0;
+  --priority-icon: #f29f26;
+  --priority-text: #9a5b00;
+  --priority-border: rgba(242, 159, 38, 0.35);
+
+  --late-bg: #fef2f2;
+  --late-icon: #eb454a;
+  --late-text: #d12f35;
+  --late-border: rgba(235, 69, 74, 0.35);
+
+  /* Tokens reservados (não criar funcionalidade na v1) */
+  --ai-bg: #f7f3fe;
+  --ai-icon: #8c5bf4;
+  --ai-text: #6b3fd4;
+  --ai-border: rgba(140, 91, 244, 0.35);
+
+  --cat-indigo-bg: #f4f4fe;
+  --cat-indigo: #6765ef;
+  --cat-pink-bg: #fdf2f8;
+  --cat-pink: #e9499a;
+  --cat-yellow-bg: #fffbf1;
+  --cat-yellow: #f8c035;
+  --note: #fef9c6;
+  --note-text: #1d1d1f;
+
+  /* Geometria e conclusão */
+  --hairline: 1px;
+  --celebration-glow: linear-gradient(135deg, #dad7f6, #cfd3f1, #f5e7f8);
+}
+
+@media (min-resolution: 2dppx) {
+  :root {
+    --hairline: 0.5px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+
+    --canvas: #18181a;
+    --surface: #222225;
+    --border: #2f2f2f;
+    --fill-subtle: #2a2a2d;
+    --text: #f5f5f7;
+    --text-2: #a1a1a6;
+    --text-3: #6e6e73;
+
+    --btn-primary-bg: #f5f5f7;
+    --btn-primary-text: #1d1d1f;
+    --focus: #2777f9;
+    --focus-halo: rgba(39, 119, 249, 0.28);
+
+    --done-bg: rgba(42, 184, 165, 0.16);
+    --done-text: #3cc8b5;
+    --done-border: rgba(42, 184, 165, 0.28);
+
+    --priority-bg: rgba(242, 159, 38, 0.16);
+    --priority-text: #f5ae45;
+    --priority-border: rgba(242, 159, 38, 0.28);
+
+    --late-bg: rgba(235, 69, 74, 0.16);
+    --late-text: #f5666b;
+    --late-border: rgba(235, 69, 74, 0.28);
+
+    --ai-bg: rgba(140, 91, 244, 0.18);
+    --ai-text: #a583f8;
+    --ai-border: rgba(140, 91, 244, 0.3);
+
+    --celebration-glow: radial-gradient(
+      circle,
+      rgba(58, 30, 63, 0.85),
+      transparent 70%
+    );
+  }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --canvas: #18181a;
+  --surface: #222225;
+  --border: #2f2f2f;
+  --fill-subtle: #2a2a2d;
+  --text: #f5f5f7;
+  --text-2: #a1a1a6;
+  --text-3: #6e6e73;
+
+  --btn-primary-bg: #f5f5f7;
+  --btn-primary-text: #1d1d1f;
+  --focus: #2777f9;
+  --focus-halo: rgba(39, 119, 249, 0.28);
+
+  --done-bg: rgba(42, 184, 165, 0.16);
+  --done-text: #3cc8b5;
+  --done-border: rgba(42, 184, 165, 0.28);
+
+  --priority-bg: rgba(242, 159, 38, 0.16);
+  --priority-text: #f5ae45;
+  --priority-border: rgba(242, 159, 38, 0.28);
+
+  --late-bg: rgba(235, 69, 74, 0.16);
+  --late-text: #f5666b;
+  --late-border: rgba(235, 69, 74, 0.28);
+
+  --ai-bg: rgba(140, 91, 244, 0.18);
+  --ai-text: #a583f8;
+  --ai-border: rgba(140, 91, 244, 0.3);
+
+  --celebration-glow: radial-gradient(
+    circle,
+    rgba(58, 30, 63, 0.85),
+    transparent 70%
+  );
+}
+
+@theme inline {
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-border: var(--border);
+  --color-fill-subtle: var(--fill-subtle);
+  --color-text: var(--text);
+  --color-text-2: var(--text-2);
+  --color-text-3: var(--text-3);
+
+  --color-btn-primary-bg: var(--btn-primary-bg);
+  --color-btn-primary-text: var(--btn-primary-text);
+  --color-focus: var(--focus);
+  --color-focus-halo: var(--focus-halo);
+
+  --color-done-bg: var(--done-bg);
+  --color-done-icon: var(--done-icon);
+  --color-done-text: var(--done-text);
+  --color-done-border: var(--done-border);
+
+  --color-priority-bg: var(--priority-bg);
+  --color-priority-icon: var(--priority-icon);
+  --color-priority-text: var(--priority-text);
+  --color-priority-border: var(--priority-border);
+
+  --color-late-bg: var(--late-bg);
+  --color-late-icon: var(--late-icon);
+  --color-late-text: var(--late-text);
+  --color-late-border: var(--late-border);
+
+  --color-ai-bg: var(--ai-bg);
+  --color-ai-icon: var(--ai-icon);
+  --color-ai-text: var(--ai-text);
+  --color-ai-border: var(--ai-border);
+
+  --color-cat-indigo-bg: var(--cat-indigo-bg);
+  --color-cat-indigo: var(--cat-indigo);
+  --color-cat-pink-bg: var(--cat-pink-bg);
+  --color-cat-pink: var(--cat-pink);
+  --color-cat-yellow-bg: var(--cat-yellow-bg);
+  --color-cat-yellow: var(--cat-yellow);
+  --color-note: var(--note);
+  --color-note-text: var(--note-text);
+
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+}
 
 @theme {
-  --color-nevoa: #f4f6f8;
-  --color-papel: #ffffff;
-  --color-tinta: #17212b;
-  --color-suave: #5b6773;
-  --color-petroleo: #1d6e75;
-  --color-ambar: #b7791f;
-  --color-musgo: #5e8c6a;
-  --font-sans: "Atkinson Hyperlegible", system-ui, -apple-system, sans-serif;
+  --radius-card: 16px;
+  --radius-row: 14px;
+  --radius-pill: 999px;
 }
 
 @layer base {
@@ -23,14 +205,20 @@
   }
 
   body {
-    background-color: var(--color-nevoa);
-    color: var(--color-tinta);
+    background-color: var(--canvas);
+    color: var(--text);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-petroleo);
+    outline: 2px solid var(--focus);
     outline-offset: 2px;
+    box-shadow: 0 0 0 3px var(--focus-halo);
+  }
+
+  .react-flow {
+    --xy-background-color-default: var(--canvas);
+    --xy-edge-stroke-default: var(--border);
   }
 }
