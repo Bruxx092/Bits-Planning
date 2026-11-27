@@ -16,7 +16,7 @@
 
 **Como a IA é usada neste projeto?** Para planejar (`/grill-me`, spec e quebra em slices verticais), implementar tickets em par ou no trilho AFK com TDD (Red → Green → Refactor), revisar código e testar regras de negócio com exemplos de resposta conhecida. Todo trabalho entra por pull request com CI verde, revisão manual e perguntas de entendimento antes do merge. Erros da IA ficam registrados para o Diário da IA.
 
-**Fora da v1 (Roadmap v2):** timer Pomodoro 25/5 e recordação ativa pós-bloco, estimativa em minutos/horas, tela Amanhã, revisões espaçadas, exportar/importar JSON, PWA, extensão de delegação para IA no app, backend com login e sincronização entre dispositivos, tema escuro, notificações e sons.
+**Fora da v1 (Roadmap v2):** timer Pomodoro 25/5 e recordação ativa pós-bloco, estimativa em minutos/horas, tela Amanhã, revisões espaçadas, exportar/importar JSON, PWA, extensão de delegação para IA no app, backend com login e sincronização entre dispositivos, seletor manual de tema, notificações e sons.
 
 ---
 
