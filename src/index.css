@@ -220,5 +220,22 @@
   .react-flow {
     --xy-background-color-default: var(--canvas);
     --xy-edge-stroke-default: var(--border);
+    --xy-controls-button-background-color-default: var(--surface);
+    --xy-controls-button-background-color-hover-default: var(--fill-subtle);
+    --xy-controls-button-color-default: var(--text);
+    --xy-controls-button-color-hover-default: var(--text);
+    --xy-controls-button-border-color-default: var(--border);
+  }
+
+  .react-flow__controls {
+    overflow: hidden;
+    border-radius: var(--radius-pill);
+    border: var(--hairline) solid var(--border);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  }
+
+  .react-flow__node:focus-visible {
+    outline: none;
+    box-shadow: none;
   }
 }
